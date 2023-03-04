@@ -32,14 +32,16 @@
 
     In this script the green snooker table background is removed by using its hsv range.
     The remaining image is thresholded and the blobs detected.
-    The blobs movement is detected by calculating the distance between the blobs in consecutive frames.
-    A blob is plotted when the distance from all previous frame blobs is bigger than eps(paramemeter).
+    The blobs movement is detected by calculating the distance between the blobs in 
+    consecutive frames. A blob is plotted when the distance from all previous frame blobs is bigger 
+    than eps(paramemeter).  
     As in the mhi script, a ball is detected when it separates from the other balls.
 
 ## 3. Template Matching (TM)
     file: detection_template_matching.py
 
-    This script uses a matching template on the thresholded image after the snooker green table removal.
+    This script uses a matching template on the thresholded image after the snooker green table 
+    removal.
     The balls tracking is the same as in the color background removal script.
     THe idea behind using TM was to try to detect touching balls and this way to be 
     more sensitive to the small ball movements.
@@ -50,7 +52,7 @@
     
 ## What else I tried:
     - Hough circles - it did not work well on the densely packed balls.
-    - Color filter - I implemented it in order to get rid of blobs that are not balls by using the balls 
-     color, but I couldn't get it to work properly. I couldn't get the color ranges right.
+    - Color filter - I implemented it in order to get rid of blobs that are not balls by using the 
+      balls color, but I couldn't get it to work properly. I couldn't get the color ranges right.
 
 
