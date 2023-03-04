@@ -11,12 +11,14 @@
 ## 1. Motion History Image (MHI)
     file: detection_mhi.py
 
-    MHI's advantage is that it is more sophisticated than a simple background subtraction because it indicates the motion by gray level intensity.
-    Since the mhi blobs corresponding to the latest frame have the highest gray level, they can be easily thresholded.
-    No need for ball coordinates tracking, since a resting ball is just a part of the background.
-    Its disadvantage,as you will see, is that the background subtraction is less accurate in densely packed balls.
-    In this case the small  ball movements are undetected and the ball is detected after it disconnects from the joined blob
-    of the touching balls.
+    MHI's advantage is that it is more sophisticated than a simple background subtraction because it 
+    indicates the motion by gray level intensity.
+    Since the mhi blobs corresponding to the latest frame have the highest gray level, they can be 
+    easily thresholded. No need for ball coordinates tracking, since a resting ball is just a part 
+    of the background.
+    Its disadvantage,as you will see, is that the background subtraction is less accurate in densely 
+    packed balls. In this case the small ball movements are undetected and the ball is detected after
+    it disconnects from the joined blob of the touching balls.
     
     An output frame is created at the end of each processed frame.
     It is a concatenation of four mid-step outputs:
@@ -48,7 +50,7 @@
     
 ## What else I tried:
     - Hough circles - it did not work well on the densely packed balls.
-    - Color filter - I implemented it in order to get rid of blobs that are not balls by using the balls color, 
-      but I couldn't get it to work properly. I couldn't get the color ranges right.
+    - Color filter - I implemented it in order to get rid of blobs that are not balls by using the balls 
+     color, but I couldn't get it to work properly. I couldn't get the color ranges right.
 
 
