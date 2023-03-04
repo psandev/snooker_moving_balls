@@ -1,8 +1,5 @@
 """
-This script uses matching template on the thresholded image after the snooker green table removal.
-The balls tracking is the same as in the color background removal script.
-
-GENERATE_VIDEO - save the output frames in a video clip or save them separately.
+GENERATE_VIDEO(parameter) - save the output frames in a video clip or save them separately.
 """
 
 import cv2

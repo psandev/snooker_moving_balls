@@ -1,11 +1,5 @@
 """
-In this script the green snooker table background is removed by using its hsv range.
-The remaining image is thresholded and the blobs detected.
-The blobs movement is performed by calculating the distance between the blobs in consecutive frames.
-A blob is plotted when the distance from all previous frame blobs is bigger than eps(paramemeter).
-As in the mhi script, a ball is detected when it separates from the other balls.
-
-GENERATE_VIDEO - save the output frames in a video clip or save them separately.
+GENERATE_VIDEO(parameter) - save the output frames in a video clip or save them separately.
 """
 
 import cv2

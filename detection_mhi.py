@@ -1,21 +1,5 @@
 """
-THis script uses MHI (Motion History Image) in order to detect the balls motion.
-Its advantage is that it is more sophisticated than a simple background subtraction because it indicates the motion by gray level intensity.
-Since the mhi blobs corresponding to the latest frame have the highest gray level, they can be easily thresholded.
-No need for ball coordinates tracking, since a resting ball is just a part of the background.
-Its disadvantage,as you will see,
-is that the background subtraction is less accurate in densely packed balls.
-In this case the small  ball movements are undetected and the ball is detected after it disconnects from the joined blob
-of the touching balls.
-
-An output frame is created at the end of each processed frame.
-It is a concatenation of four mid-step outputs:
-the original frame after the mask application,
-the original frame after the mask application with the green table subtracted,
-the final thresholded mhi output, which is the input for the contour detection
-the generated mhi image.
-
-GENERATE_VIDEO - save the output frames in a video clip or save them separately.
+GENERATE_VIDEO(parameter) - save the output frames in a video clip or save them separately.
 """
 
 import cv2
