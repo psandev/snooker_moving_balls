@@ -11,7 +11,6 @@ from mhi import MotionHistory
 from fiter_by_color import filter_by_color
 
 
-
 def generator(cap):
     while cap.isOpened():
         yield
@@ -40,7 +39,7 @@ def generate_mhi(path_video: Path,
     writer = None
     if generate_video:
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        file_path = path_out / f'{path_video.stem}_mhI_output.mp4'
+        file_path = path_out / f'mhI_output.mp4'
         # you have to update the final frame width according to the number of concatenated outputs in frame_concat
         frame_width = 4 * w
         writer = cv2.VideoWriter(file_path.as_posix(), fourcc, fps, (frame_width, h))
@@ -107,12 +106,14 @@ def generate_mhi(path_video: Path,
         writer.release()
 
 
+
 if __name__ == '__main__':
     VIDEO = 'data/snooker_pix_5min.mp4'
     FOLDER_OUT = 'output/mhi_output'
     MASK = 'data/mask_im.jpg'
     # generate video or separate frames
-    GENERATE_VIDEO = False
+    GENERATE_VIDEO = True
+    START_FRAME = 0
     # number of frames for mhi generation
     MHI_HISTORY = 10
     # snooker green hsv range:
@@ -131,5 +132,6 @@ if __name__ == '__main__':
                  lower=LOWER,
                  upper=UPPER,
                  mhi_history=MHI_HISTORY,
-                 generate_video=GENERATE_VIDEO
+                 generate_video=GENERATE_VIDEO,
+                 start_frame=START_FRAME
                  )

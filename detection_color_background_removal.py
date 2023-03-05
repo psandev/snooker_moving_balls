@@ -10,10 +10,10 @@ from tqdm import tqdm
 from fiter_by_color import filter_by_color
 
 
-
 def generator(cap):
     while cap.isOpened():
         yield
+
 
 def detect_moving_balls(path_video: Path,
                         path_out: Path,
@@ -38,7 +38,7 @@ def detect_moving_balls(path_video: Path,
     writer = None
     if generate_video:
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        file_path = path_out/f'{path_video.stem}_mhI_output.mp4'
+        file_path = path_out/f'bg_removal_output.mp4'
         # you have to update the final frame width according to the number of concatenated outputs in frame_concat
         frame_width = 3 * w
         writer = cv2.VideoWriter(file_path.as_posix(), fourcc, fps, (frame_width, h))
@@ -105,10 +105,10 @@ if __name__ == '__main__':
     FOLDER_OUT = 'output/bg_removal_output'
     MASK = 'data/mask_im.jpg'
     # generate video or separate frames
-    GENERATE_VIDEO = False
+    GENERATE_VIDEO = True
     # distance between previos and current blob centers in pixels
     EPS = 2
-    START_FRAME = 320
+    START_FRAME = 0
     # snooker green HSV range:
     LOWER = np.array([28, 68, 36])
     UPPER = np.array([74, 244, 131])
